@@ -38,13 +38,7 @@ cd infra
 docker-compose up -d --build
 ```
 
-Выполняем миграции для приложения users и reviews:
-```bash
-docker-compose exec web python manage.py makemigrations users
-```
-```bash
-docker-compose exec web python manage.py makemigrations reviews
-```
+Выполняем миграции:
 ```bash
 docker-compose exec web python manage.py migrate
 ```
@@ -67,16 +61,6 @@ docker-compose exec web python manage.py dumpdata > fixtures.json
 Останавливаем контейнеры:
 ```bash
 docker-compose down -v
-```
-
-### Шаблон наполнения .env (не включен в текущий репозиторий) расположенный по пути infra/.env
-```
-DB_ENGINE=django.db.backends.postgresql
-DB_NAME=postgres
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=postgres
-DB_HOST=db
-DB_PORT=5432
 ```
 
 ### Документация API YaMDb
